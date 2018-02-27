@@ -14,16 +14,18 @@
        ."<th>".'album'."<th>"
        ."<th>"."</th>"
        ."</tr>";
-  while(!feof($songs)){
-       list($s,$at,$ab) = explode(" ", fgets($songs));
+  do {
+        list($s,$at,$ab) = explode(" ", fgets($songs));
+        if(strlen($s) == 0)
+          break;
         echo "<tr>"
         ."<td>".$s."<td>"
         ."<td>".$at."<td>"
         ."<td>".$ab."<td>"
-        ."<td>"."<input type = \"submit\">"
+        ."<td>"."<button type = \"submit\"> purchase"."</button>"
         ."</tr>";
-  }
-    ".</table>"
+  } while(!feof($songs));
+    echo ".</table>";
   ?>
 
 </body>
