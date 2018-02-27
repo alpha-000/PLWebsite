@@ -13,6 +13,7 @@
   <p id = "passkey"> Password:
   <form action = "store.php", method = post, id = "pass">
     <input type = "text" name = "password">
+    <input type = "submit">
   </form>
 </p> </br>
   </section>
