@@ -2,6 +2,14 @@
 <body>
   <link rel="stylesheet" href="main.css">
   <h3   color: #263238;>Welcome<h3>
+
+    <form method="get" action="my_playlist.php">
+      <p align="right" padding-top: "12px"
+        padding-bottom: "12px"><b>My Playlist</b>
+      <button type="submit">Go To:</button>
+      </p>
+  </form>
+
   <?php
   $name = $_POST["username"];
   echo $name.'!';
