@@ -14,7 +14,7 @@
   <form action = "store.php", method = post, id = "pass">
     <input type = "text" name = "password">
   </form>
-  </p> <br>
+</p> </br>
   </section>
 
 </body>
