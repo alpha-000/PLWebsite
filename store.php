@@ -64,9 +64,10 @@ do {
 } while(!feof($oreo_songs));
   echo ".</table>";
   $library = $_POST["username"]."library.txt";
-  if(!file_exists($library))
-    fopen($library, "w");
-    echo "<form action = ".$library.">"."<input type = \"submit\">"."</form>";
+  if(!file_exists($library)){
+    $file =fopen($library, "w");
+  }
+    echo "<form action = my_playlist.php method= \"post\">"."<input type=\"hidden\" name=\"username\" value= \".$_POST[."username"]".\">"."<input type = \"submit\">"."</form>";
   ?>
 
 </body>
