@@ -9,7 +9,7 @@
     <form action = "store.php", method = post, id = "userbutton">
       <input type = "text" name = "username">
     </form>
-  </p> <br>
+  </p> </br>
   <p id = "passkey"> Password:
   <form action = "store.php", method = post, id = "pass">
     <input type = "text" name = "password">
