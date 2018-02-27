@@ -1,6 +1,12 @@
 #user{
   display: inline;
 }
+img {
+    display: inline-block;
+}
+#android_Picture{
+  display: inline;
+}
 #userbutton{
   display: inline;
 }
@@ -13,15 +19,16 @@
 
 
 body {
-    background-color: lightblue;
+    background-color: #e0e0e0;
 }
 
 h1 {
-    color: white;
+   background-color: #f1f2f3;
+    color: #263238;
     text-align: center;
 }
 
-p {
+p{
     font-family: verdana;
     font-size: 20px;
 }
