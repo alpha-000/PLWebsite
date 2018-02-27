@@ -1,6 +1,8 @@
 <html>
 <body>
-  <p>test</p>
+  <?php
+  echo "Welcome".$_POST["username"];
+  ?>
 
 </body>
 </html>
