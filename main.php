@@ -5,16 +5,14 @@
   <hr>
   <section align = "left">
     <p id = "user"> username:
-    <form action = "store.php", method = post, id = "userbutton">
-      <input type = "text" name = "username">
-    </form>
-  </p> <br>
-  <p id = "passkey"> password:
-  <form action = "store.php", method = post, id = "pass">
-    <input type = "text" name = "password">
-    <input type = "submit">
+    <form action="store.php" method="post", id= "userbutton">
+      <input type= "text" name= "username">
+  </p> </br>
+  <p id= "passkey"> password:
+    <input type= "text" name= "password">
+    <input type= "submit">
   </form>
-  </p> <br>
+</p> </br>
   </section>
 
 </body>

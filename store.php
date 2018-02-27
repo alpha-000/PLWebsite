@@ -1,7 +1,10 @@
 <html>
 <body>
+  Welcome
+</p>
   <?php
-  echo "Welcome".$_POST["username"];
+  $name = $_POST["username"];
+  echo $name;
   ?>
 
 </body>
