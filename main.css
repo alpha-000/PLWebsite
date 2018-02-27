@@ -19,15 +19,27 @@ img {
 table, td, th {
     border: 1px solid #263238;
     text-align: left;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
 }
+ tr:nth-child(even){
+   background-color: #f2f2f2;
+ }
 
+ tr:hover {background-color: #ddd;}
 table {
     border-collapse: collapse;
     width: 50%;
 }
+td{
 
-th, td {
-    padding: 2px;
+}
+th{
+  padding-top: 12px;
+ padding-bottom: 12px;
+ text-align: left;
+ background-color: #4b7d2f;
+ color: white;
 }
 body {
     background-color: #e0e0e0;
