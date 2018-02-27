@@ -31,7 +31,7 @@
           ."<td>".$s."<td>"
           ."<td>".$at."<td>"
           ."<td>".$ab."<td>"
-          ."<td>"."<button type = \"submit\" name=\"button\" value=$s,$at,$ab onclick = \"myFunction()\"> purchase"."</button>"
+          ."<td>"."<button type = \"submit\" name=\"button\"  action = \"<?php myFunction($s,$at,$ab)?> \"> purchase"."</button>"
           ."</tr>";
     } while(!feof($songs));
       echo ".</table>";
@@ -52,12 +52,12 @@
     <form action = "my_playlist.php" method= "post"><input type="hidden" name="username2" value= $_POST["username"]>
       <input type = "submit"></form>
       <script>
-      function myFunction() {
             <?php
+              function myFunction($s,$at,$ab) {
               $myfiles = fopen($_POST["username"]."library.txt", "a+") or die("Unable to open file!");
-              fwrite($myfiles,$button[0]." ".$button[1]." ".$button[2]."Test");
+              fwrite($myfiles,$s." ".$at." ".$ab."Test");
+              }
               ?>
-      }
       </script>
 
 </body>
