@@ -59,7 +59,7 @@ do {
       ."<td>".$sa."<td>"
       ."<td>".$ata."<td>"
       ."<td>".$aba."<td>"
-      ."<td>"."<button type = \"submit\"> purchase"."</button>"
+      ."<td>"."<button type = \"submit\" id=\"demo\". onclick =\"myFunction()\">purchase"."</button>"
       ."</tr>";
 } while(!feof($oreo_songs));
   echo ".</table>";
@@ -67,8 +67,25 @@ do {
   if(!file_exists($library)){
     $file =fopen($library, "w");
   }
-    echo "<form action = my_playlist.php method= \"post\">"."<input type=\"hidden\" name=\"username\" value= \".$_POST[."username"]".\">"."<input type = \"submit\">"."</form>";
   ?>
+    <form action = "my_playlist.php" method= "post"<input type="hidden" name="username" value= $_POST["username"]>
+      <input type = "submit"></form>
+
+
+
+      <script>
+      function myFunction() {
+            <?php
+              $myfiles = fopen("library.txt", "w") or die("Unable to open file!");
+
+                $whole = "Song1"."\t"."artist1"."\t"."album1";
+              fwrite($myfiles, $whole);
+            //fwrite($myfiles, $ata);
+            //  fwrite($myfiles, $aba);
+              fclose($myfiles);
+                ?>
+      }
+      </script>
 
 </body>
 </html>
