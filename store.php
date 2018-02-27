@@ -13,77 +13,50 @@
   <?php
   $name = $_POST["username"];
   echo $name.'!';
+  if(!file_exists($name."library.txt"))
+    fopen($name."library.txt", "w");
+  function createFile($file){
+    $songs = fopen($file, "r") or die("Refresh browser");
+    echo "<table>"."<tr>"
+         ."<th>".'Song'."<th>"
+         ."<th>".'Artist'."<th>"
+         ."<th>".'Album'."<th>"
+         ."<th>"."</th>"
+         ."</tr>";
+    do {
+          list($s,$at,$ab) = explode(" ", fgets($songs));
+          if(strlen($s) == 0)
+            break;
+          echo "<tr>"
+          ."<td>".$s."<td>"
+          ."<td>".$at."<td>"
+          ."<td>".$ab."<td>"
+          ."<td>"."<button type = \"submit\" name=\"button\" value=$s,$at,$ab onclick = \"myFunction()\"> purchase"."</button>"
+          ."</tr>";
+    } while(!feof($songs));
+      echo ".</table>";
+  }
   ?>
 <h2>Lollipop Tunes</h2>
   <?php
-
-
-  $songs = fopen("lollipop.txt", "r") or die("Refresh browser");
-  echo "<table>"."<tr>"
-       ."<th>".'Song'."<th>"
-       ."<th>".'Artist'."<th>"
-       ."<th>".'Album'."<th>"
-       ."<th>"."</th>"
-       ."</tr>";
-  do {
-        list($s,$at,$ab) = explode(" ", fgets($songs));
-        if(strlen($s) == 0)
-          break;
-        echo "<tr>"
-        ."<td>".$s."<td>"
-        ."<td>".$at."<td>"
-        ."<td>".$ab."<td>"
-        ."<td>"."<button type = \"submit\"> purchase"."</button>"
-        ."</tr>";
-  } while(!feof($songs));
-    echo ".</table>";
+    createFile("lollipop.txt");
   ?>
 
 <p>
 <h2>Oreo Tunes</h2>
 </p>
   <?php
+  createFile("oreo.txt");
 
-$oreo_songs = fopen("oreo.txt", "r") or die("Refresh browser");
-echo "<table>"."<tr>"
-     ."<th>".'Song'."<th>"
-     ."<th>".'Artist'."<th>"
-     ."<th>".'Album'."<th>"
-     ."<th>"."</th>"
-     ."</tr>";
-do {
-      list($sa,$ata,$aba) = explode(" ", fgets($oreo_songs));
-      if(strlen($sa) == 0)
-        break;
-      echo "<tr>"
-      ."<td>".$sa."<td>"
-      ."<td>".$ata."<td>"
-      ."<td>".$aba."<td>"
-      ."<td>"."<button type = \"submit\" id=\"demo\". onclick =\"myFunction()\">purchase"."</button>"
-      ."</tr>";
-} while(!feof($oreo_songs));
-  echo ".</table>";
-  $library = $_POST["username"]."library.txt";
-  if(!file_exists($library)){
-    $file =fopen($library, "w");
-  }
   ?>
-    <form action = "my_playlist.php" method= "post"<input type="hidden" name="username" value= $_POST["username"]>
+    <form action = "my_playlist.php" method= "post"><input type="hidden" name="username2" value= $_POST["username"]>
       <input type = "submit"></form>
-
-
-
       <script>
       function myFunction() {
             <?php
-              $myfiles = fopen("library.txt", "w") or die("Unable to open file!");
-
-                $whole = "Song1"."\t"."artist1"."\t"."album1";
-              fwrite($myfiles, $whole);
-            //fwrite($myfiles, $ata);
-            //  fwrite($myfiles, $aba);
-              fclose($myfiles);
-                ?>
+              $myfiles = fopen($_POST["username"]."library.txt", "a+") or die("Unable to open file!");
+              fwrite($myfiles,$button[0]." ".$button[1]." ".$button[2]."Test");
+              ?>
       }
       </script>
 
