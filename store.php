@@ -55,8 +55,9 @@ do {
       ."</tr>";
 } while(!feof($oreo_songs));
   echo ".</table>";
+  $library = $_POST["username"]."library.txt";
+  if(file_exists($library))
   ?>
-
 
 </body>
 </html>
