@@ -1,17 +1,20 @@
 <html>
 <body>
-  <h3>Welcome<h3>
+  <link rel="stylesheet" href="main.css">
+  <h3   color: #263238;>Welcome<h3>
   <?php
   $name = $_POST["username"];
   echo $name.'!';
   ?>
-
+<h2>Lollipop Tunes</h2>
   <?php
-  $songs = fopen("songs.txt", "r") or die("Refresh browser");
+
+
+  $songs = fopen("lollipop.txt", "r") or die("Refresh browser");
   echo "<table>"."<tr>"
-       ."<th>".'song'."<th>"
-       ."<th>".'artist'."<th>"
-       ."<th>".'album'."<th>"
+       ."<th>".'Song'."<th>"
+       ."<th>".'Artist'."<th>"
+       ."<th>".'Album'."<th>"
        ."<th>"."</th>"
        ."</tr>";
   do {
@@ -27,6 +30,33 @@
   } while(!feof($songs));
     echo ".</table>";
   ?>
+
+<p>
+<h2>Oreo Tunes</h2>
+</p>
+  <?php
+
+$oreo_songs = fopen("oreo.txt", "r") or die("Refresh browser");
+echo "<table>"."<tr>"
+     ."<th>".'Song'."<th>"
+     ."<th>".'Artist'."<th>"
+     ."<th>".'Album'."<th>"
+     ."<th>"."</th>"
+     ."</tr>";
+do {
+      list($sa,$ata,$aba) = explode(" ", fgets($oreo_songs));
+      if(strlen($sa) == 0)
+        break;
+      echo "<tr>"
+      ."<td>".$sa."<td>"
+      ."<td>".$ata."<td>"
+      ."<td>".$aba."<td>"
+      ."<td>"."<button type = \"submit\"> purchase"."</button>"
+      ."</tr>";
+} while(!feof($oreo_songs));
+  echo ".</table>";
+  ?>
+
 
 </body>
 </html>
