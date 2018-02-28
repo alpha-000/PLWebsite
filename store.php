@@ -13,8 +13,12 @@
   <?php
   $name = $_POST["username"];
   echo $name.'!';
-  if(!file_exists($name."library.txt"))
-    fopen($name."library.txt", "w");
+  function add(){
+    list($si,$ati,$abi) = explode(", " , $_POST["buy"]);
+    $library = fopen("library.txt","a+") or die("Refresh browser");
+    $input = $si." ".$ati." ".$abi;
+    $library = fwrite($library,$input);
+  }
   function createFile($file){
     $songs = fopen($file, "r") or die("Refresh browser");
     echo "<table>"."<tr>"
@@ -31,11 +35,15 @@
           ."<td>".$s."<td>"
           ."<td>".$at."<td>"
           ."<td>".$ab."<td>"
-          ."<td>"."<button type = \"submit\" name=\"button\"  action = \"<?php myFunction($s,$at,$ab)?> \"> purchase"."</button>"
+          ."<td>"
+          ."<form action = \"store.php\" method = \"post\">"."<button type = \"submit\" name = \"buy\" value = \"$s, $at, $ab\">purchase"."</button>\n"."</form>"
           ."</tr>";
     } while(!feof($songs));
       echo ".</table>";
   }
+  if (isset($_POST["buy"])){
+    add();
+		}
   ?>
 <h2>Lollipop Tunes</h2>
   <?php
@@ -49,16 +57,6 @@
   createFile("oreo.txt");
 
   ?>
-    <form action = "my_playlist.php" method= "post"><input type="hidden" name="username2" value= $_POST["username"]>
-      <input type = "submit"></form>
-      <script>
-            <?php
-              function myFunction($s,$at,$ab) {
-              $myfiles = fopen($_POST["username"]."library.txt", "a+") or die("Unable to open file!");
-              fwrite($myfiles,$s." ".$at." ".$ab."Test");
-              }
-              ?>
-      </script>
 
 </body>
 </html>
