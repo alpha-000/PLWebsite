@@ -5,6 +5,7 @@
   <h1 align = "left" >Welcome to the Android Music!</h1><p/>
   <section align = "left">
     <p id = "user"> Username:
+      <!-- Transfers you to store -->
     <form action = "store.php" method ="post", id = "userbutton">
       <input type = "text" name = "username">
   </p> </br>
